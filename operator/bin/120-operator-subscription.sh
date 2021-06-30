@@ -14,13 +14,14 @@ OPERATOR_CHANNEL=${OPERATOR_CHANNEL:-channel-name}
 OPERATOR_INSTANCE=${OPERATOR_INSTANCE:-operator-example-instance}
 OPERATOR_NAME=${OPERATOR_NAME:-operator-example}
 OPERATOR_SOURCECATALOG=${OPERATOR_SOURCECATALOG:-redhat-operators}
+SUBSCRIPTION_NAME=${SUBSCRIPTION_NAME:-name-operator}
 
 sed "s/: namespace-example/: $NS/ ; \
      s/channel: channel-name/channel: ${OPERATOR_CHANNEL}/ ; \
      s/installPlanApproval: Automatic/installPlanApproval: $OPERAROR_APPROVAL/ ; \
      s/label.name: label-example/$LABEL_KEY: $LABEL_VALUE/ ; \
-     s/name: operator-example/name: $OPERATOR_INSTANCE/ ; \
-     s/name: name-operator/name: ${OPERATOR_NAME}-operator/ ; \
+     s/name: operator-example/name: $SUBSCRIPTION_NAME/ ; \
+     s/name: name-operator/name: $SUBSCRIPTION_NAME/ ; \
      s/source: redhat-operators/source: ${OPERATOR_SOURCECATALOG}/ ; \
      " $MANIFEST
 

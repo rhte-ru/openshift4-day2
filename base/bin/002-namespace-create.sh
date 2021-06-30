@@ -13,7 +13,7 @@ sed "s/name: namespace-example/name: $NS/ ; s/label.name: label-example/$LABEL_K
 
 cat << EOF
 #
-# to apply manifest run with (permissions reured):
+# to apply manifest run with (permissions required):
 # $BASH_SOURCE | oc apply -f -
 #
 EOF

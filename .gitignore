@@ -1,5 +1,4 @@
 **/*.crt
 **/*.key
 **/*.pem
-operator/infinispan
-README-MONT.md
+**/README-MONT.md

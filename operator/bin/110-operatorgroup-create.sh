@@ -21,7 +21,7 @@ sed "s/\([:-]\) namespace-example/\1 $NS/ ; s/: operatorgroup-example/: $OPERATO
 
 cat << EOF
 #
-# to apply manifest run with (permissions reured):
+# to apply manifest run with (permissions required):
 # $BASH_SOURCE | oc apply -f -
 #
 EOF
