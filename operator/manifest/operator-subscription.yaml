@@ -1,0 +1,14 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    label.name: label-example
+  name: operator-example
+  namespace: namespace-example
+spec:
+  channel: channel-name
+  installPlanApproval: Automatic
+  name: name-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace

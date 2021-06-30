@@ -1,0 +1,32 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+    - mappingMethod: claim
+      name: idp-openid-example
+      openID:
+        ca:
+          name: idp-ca-example
+        claims:
+          email:
+            - email
+            - custom_email_claim
+          name:
+            - name # full name
+            # - email
+            # - given_name # first name
+          preferredUsername:
+            - email
+            # - preferred_username # uid
+        clientID: idp-clientid-example
+        clientSecret:
+          name: idp-secret-example
+        extraScopes:
+          - email
+          - profile
+        extraAuthorizeParameters:
+          include_granted_scopes: "true"
+        issuer: https://www.idp-issuer.com
+      type: OpenID

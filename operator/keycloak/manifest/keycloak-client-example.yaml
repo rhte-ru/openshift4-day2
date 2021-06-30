@@ -1,0 +1,31 @@
+apiVersion: keycloak.org/v1alpha1
+kind: KeycloakClient
+metadata:
+  name: client-example
+  namespace: namespace-example
+  labels:
+    label.name: label-example
+    realm: realm-example
+spec:
+  realmSelector:
+    matchLabels:
+      realm: realm-example
+  client:
+    clientAuthenticatorType: client-secret
+    clientId: client-example
+    optionalClientScopes:
+      - email
+      - profile
+    defaultClientScopes:
+      - web-origins
+    enabled: true
+    protocol: openid-connect
+    # redirectUrls make sense while accessType is 'confidential'
+    accessType: confidential
+    redirectUris:
+      - https://oauth.example.com/oauth2callback/keycloak-sso
+      - https://example.com
+    baseUrl: https://example.com
+    # let keycloak operator to generate random secret value
+    secret: client-example-secret
+    standardFlowEnabled: true
