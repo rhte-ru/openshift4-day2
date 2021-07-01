@@ -108,6 +108,9 @@ nsComment = "OpenSSL Generated Intermediate CA Request"
 crlDistributionPoints = @crl_info
 authorityInfoAccess = @ocsp_info
 
+[ v3_req ]
+basicConstraints = CA:true
+
 [crl_info]
 URI.0 = http://crl.example.com/__CA__/revoked.crl
 

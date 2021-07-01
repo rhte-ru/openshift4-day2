@@ -12,6 +12,8 @@ base=$(realpath -e $(dirname $BASH_SOURCE)/..)
 ALG=$1
 FILE=$2
 
+[ -z "$FILE" -a "$ALG" != "" ] && { FILE=$ALG ; ALG=ec ; }
+
 [ -z "$ALG" -o -z "$FILE" ] && error "SYNTAX:\n  $BASH_SOURCE <ALG> <FILE>"
 
 [ -e "$FILE" ] || error "KEY '$FILE' not found at CA '$CA'"

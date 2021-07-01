@@ -38,7 +38,7 @@ if [ "$CA" = "ROOT" ] ; then
     # can have up to 3 subordinates
     PATHLEN=${PATHLEN:-3}
     POLICY=${POLICY:-policy_strict}
-    V3_EXT = "v3_ca"
+    V3_EXT="v3_ca"
 else
     CA_HOSTNAME=${CA_HOSTNAME:-$CA}
     COPY_EXT=${COPY_EXTENSIONS:-copy}
@@ -46,7 +46,7 @@ else
     # sing node certificates only
     PATHLEN=${PATHLEN:-0}
     POLICY=${POLICY:-policy_loose}
-    V3_EXT = "v3_intermediate_ca"
+    V3_EXT="v3_intermediate_ca"
 fi
 
 COUNTRY=${COUNTRY:-AQ}
