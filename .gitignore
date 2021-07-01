@@ -3,3 +3,7 @@
 **/*.pem
 **/README-MONT.md
 **/*.backup
+ca/**
+!ca/README.md
+!ca/bin
+!ca/_templates
