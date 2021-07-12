@@ -7,8 +7,9 @@ if [ -z "$1" -o -z "$2" ] ; then
     exit 1
 fi
 
-DRY_RUN=${DRY_RUN:-true}
+NS=${NS:-openshift-ingress}
+DRY_RUN=${DRY_RUN:-client}
 INGRESS_SECRET=${INGRESS_SECRET:-ingress-custom-cert}
 
- oc -n openshift-ingress create --dry-run=$DRY_RUN secret tls $INGRESS_SECRET \
+ oc -n $NS create --dry-run=$DRY_RUN secret tls $INGRESS_SECRET \
      --cert=$1 --key=$2
