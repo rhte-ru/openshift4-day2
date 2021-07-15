@@ -2,8 +2,6 @@
 
 set -e
 
-base=$(realpath -e $(dirname $BASH_SOURCE)/..)
-
 IDP_CA_CHAIN_CM=${IDP_CA_CHAIN_CM:-idp-ca-example}
 
 if [ -z "$1" ] ; then

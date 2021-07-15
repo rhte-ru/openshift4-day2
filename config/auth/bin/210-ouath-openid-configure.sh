@@ -5,6 +5,7 @@ set -e
 base=$(realpath -e $(dirname $BASH_SOURCE)/..)
 MANIFEST=${1:-${base}/manifest/oauth-openid-example.yaml}
 
+CLIENT_NAME=${CLIENT_NAME:-idp-clientid-example}
 IDP_CA_CHAIN_CM=${IDP_CA_CHAIN_CM:-idp-ca-example}
 IDP_CLIENT_SECRET=${IDP_CLIENT_SECRET:-idp-secret-example}
 OPENID_IDP_NAME=${OPENID_IDP_NAME:-idp-openid-example}
