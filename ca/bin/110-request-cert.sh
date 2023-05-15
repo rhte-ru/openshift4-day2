@@ -35,7 +35,7 @@ if [ -z "$1" ] ; then
 else
     set +e
     for e in $* ; do
-        echo $e | grep -q '\([0-9\+\.]\)\{3\}'
+        echo $e | grep -q '\([0-9]\+\.\)\{3\}'
         if [ "$?" = "0" ] ; then
             ALT_NAMES="${ALT_NAMES} IP:${e}"
         else
