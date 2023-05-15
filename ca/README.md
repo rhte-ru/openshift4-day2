@@ -22,7 +22,7 @@ bin/020-info-key.sh ROOT/private/ROOT.key.pem
 # create Self-signed certificate of ROOT CA
 CA=ROOT bin/030-self-sign.sh
 
-# examine content of kust created certificate 
+# examine content of just created certificate 
 bin/040-info-cert.sh ROOT/certs/ROOT.crt.pem
 
 # generate Certificate Revockation List
