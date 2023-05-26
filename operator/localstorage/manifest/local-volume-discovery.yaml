@@ -1,0 +1,15 @@
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeDiscovery
+metadata:
+  labels:
+    label.name: label-example
+  name: auto-discover-devices
+  namespace: namespace-example
+spec:
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+      - key: kubernetes.io/hostname
+        operator: In
+        values:
+        - worker-0

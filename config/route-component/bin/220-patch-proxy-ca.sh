@@ -1,0 +1,1 @@
+/home/ocp-admin/git/openshift4-day2/config/tls/bin/220-patch-proxy-ca.sh

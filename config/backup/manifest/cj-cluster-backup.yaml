@@ -1,0 +1,48 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cluster-backup
+  namespace: openshift-day2
+spec:
+  jobTemplate:
+    metadata:
+      name: cluster-backup
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          restartPolicy: OnFailure
+          hostNetwork: true
+          containers:
+          - command:
+            - /bin/bash
+            - -c
+            - |
+                 set -e ;
+                 chroot /host /usr/local/bin/cluster-backup.sh $BACKUP_DIR ;
+                 find /host$BACKUP_DIR -name '*.db' -exec gzip {} \; ;
+                 echo "-------- $(chroot /host hostname):/$BACKUP_DIR ----------" ;
+                 ls -l /host$BACKUP_DIR ;
+            env:
+            - name: BACKUP_DIR
+              value: /home/core/assets/backup
+            image: registry.redhat.io/openshift4/ose-cli:4.7
+            imagePullPolicy: IfNotPresent
+            name: cluster-backup
+            resources: {}
+            securityContext:
+              privileged: true
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+            volumeMounts:
+            - mountPath: /host
+              name: host-root
+          serviceAccount: cluster-backup
+          serviceAccountName: cluster-backup
+          volumes:
+          - hostPath:
+              path: /
+              type: ""
+            name: host-root
+  schedule: 00 15 * * *
